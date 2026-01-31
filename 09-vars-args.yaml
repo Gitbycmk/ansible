@@ -1,9 +1,12 @@
 - name: variables from args
-  hosts: local
-  connections: local
-  tasks:
-  - name: print the course info
-    ansible.builtin.debug:
-      msg: "Course Name is: {{ COURSE }}, Duration: {{ DURATION }}, Trainer: {{ Trainer }}"
+  hosts: all
+  connection: ssh
+  gather_facts: false
 
-      # ansible-playbook -i inventory.ini -e ansible_user=ec2-user -e ansible_password=DevOps321 -e "COURSE=Ansible" -e "DURATION=10HRS" -e "Trainer=Sivakumar" 09-vars-args.yaml
+  tasks:
+    - name: Print variables passed from CLI
+      ansible.builtin.debug:
+        msg:
+          - "Course is {{ COURSE }}"
+          - "Duration is {{ DURATION }}"
+          - "Trainer is {{ Trainer }}"
