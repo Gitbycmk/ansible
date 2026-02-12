@@ -1,4 +1,4 @@
-- nam: loops
+- name: loops
   hosts: local
   connection: local
   tasks:
