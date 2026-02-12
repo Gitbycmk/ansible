@@ -1,0 +1,9 @@
+- name: data types
+  hosts: local
+  connection: local
+  vars:
+    Course: "DevOps with AWS" # string
+    Duration: 120 # number
+    is_live: true # boolean
+    tools: # ["Linux", "Shell", "Ansible"]
+   
